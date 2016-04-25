@@ -25,16 +25,16 @@
                 </ul>
                 <ul class="nav navbar-nav topnav">
                     <li class="dropdown #{view == '/index.xhtml' ? 'active' : ''}">
-                        <h:link outcome="/index" value="Home"/>
+                        <h:link outcome="/index" value="首页"/>
                     </li>
                     <li class="dropdown #{(view == '/shop/BrowseProducts.xhtml' or view == '/shop/BrowseCategories.xhtml') ? 'active' : ''}">
-                        <h:link outcome="/shop/BrowseCategories" value="Browse"/>
+                        <h:link outcome="/shop/BrowseCategories" value="所有商品"/>
                     </li>
                     <li class="dropdown #{view == '/shop/Basket.xhtml' ? 'active' : ''}">
-                        <h:link outcome="/shop/Basket" value="Cart (#{basket.count})"/>
+                        <h:link outcome="/shop/Basket" value="购物车 (#{basket.count})"/>
                     </li>
                     <li class="dropdown #{view == '/user/MyOrders.xhtml' ? 'active' : ''}">
-                        <h:commandLink action="#{myOrdersController.prepareList}" value="My Orders"/>
+                        <h:commandLink action="#{myOrdersController.prepareList}" value="我的订单"/>
                     </li>
                 </ul>
                 <!--/nav-->
