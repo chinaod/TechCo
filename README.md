@@ -1,72 +1,12 @@
-OOW HOL 9458
-============
-In order to run this application on Oracle Public Cloud, you must follow these steps. 
+Oracle Java Cloud 示例应用
+============ 
+在Oracle Java云上运行该应用，请参考下列博客系列文章。
 
-# 1. Create DB and JCS PaaS instances on Oracle Public Cloud
-When prompted to provide a VM Public Key (to do SSH), use the existing one at 'etc/ssh/hol9458_id_rsa.pub'.
+1. 申请开通Oracle Java云环境
+https://blogs.oracle.com/OracleDirectMWCN/entry/oracle_java_cloud%E7%B3%BB%E5%88%97_%E8%AF%95%E7%94%A8%E5%B8%90%E5%8F%B7%E5%BC%80%E9%80%9A%E6%8C%87%E5%8D%97
 
- * Create a Database Cloud Service (non-VI) instance - 12c
- * Create a Java Cloud Service (VI) instance - 12c
+2. 创建数据库及Java云实例
+https://blogs.oracle.com/OracleDirectMWCN/entry/oracle_cloud%E7%B3%BB%E5%88%97_%E5%88%9B%E5%BB%BAjava%E4%BA%91%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%91%E5%AE%9E%E4%BE%8B
 
-## Creating a DBCS instance
-The Database Cloud Service instance you must create must have the following configuration:
-
- * Service Level: Oracle Database Cloud Service (important: not Virtual Image)
- * Software Release: Oracle Database 12c Release 1
- * Software Edition: Enterprise Edition
-
-In the Service Details form, provide a name for your DBCS instance. For your conveniency, please use 'OOW14HOL9458'. See list below for other configurations:
-
- * Instance Name: OOW14HOL9458
- * Compute Shape: OC3 - 1 OCPU
- * VM Public Key: <upload etc/ssh/hol9458_id_rsa.pub>
- * Administration Password: Welcome1#
- * Confirm Password: Welcome1#
-
-Since this is an instance for demonstration, do not select a Backup Destination. 
-
- * Backup Destination: None
-
-Leave all other fields unchanged with their default values. Finish the process to start provisioning this instance.
-
-Do not proceed to next step while still provisioning. Wait for it to finish.
-
-## Create a JCS instance
-The Java Cloud Service instance you must create must have the following configuration:
-
- * Service Level: Oracle Java Cloud Service - Virtual Image
- * Software Release: Oracle WebLogic Server 12c (12.1.2.0)
- * Software Edition: Enterprise Edition (important: not with Coherence)
-
-In the Instance Details form, provide a name for your JCS instance. For your conveniency, please use 'OOW14HOL9458'. See list below for other configurations:
-
- * Instance Name: OOW14HOL9458
- * Compute Shape: OC3 - 1 OCPU
- * VM Public Key: <upload etc/ssh/hol9458_id_rsa.pub>
- * User Name: weblogic
- * Password: Welcome1#
- * Confirm Password: Welcome1#
- * Database Configuration: select previously created DBCS, say 'OOW14HOL9458'
- * Database Administrator User Name: system
- * Password: Welcome1#
- * Load Balancer: No
-
-Leave all other fields unchanged with their default values. Finish the process to start provisioning this instance.
-
-You can advance to Step 2 below while JCS is provisioning.
-
-# 2. Activate the OE Schema in your newly created Oracle DBCS instance
-After your DBCS has been provisioned, go to the instance details and find what is its Public IP address. 
-Connect with SSH using the private key 'hol9458_id_rsa' as follows:
-'''
-$ ssh oracle@<dbcs-public-ip-address> -i etc/ssh/hol9458_id_rsa
-'''
-
-Call the following SQL\*Plus command to activate the OE Schema in Oracle DB 12c:
-
-'''
-$ sqlplus / as sysdba
-alter session set container=pdb1;
-alter user oe account unlock identified by welcome1;
-$ sqlplus oe/welcome1@pdb1
-'''
+3. 创建应用所需的数据库用户及表对象
+https://blogs.oracle.com/OracleDirectMWCN/entry/oracle_java_cloud%E7%B3%BB%E5%88%97_03_%E5%9C%A8%E4%BA%91%E7%AB%AF%E9%83%A8%E7%BD%B2%E4%B8%80%E4%B8%AAjava%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F
