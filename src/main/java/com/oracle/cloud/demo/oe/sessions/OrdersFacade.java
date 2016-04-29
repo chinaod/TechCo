@@ -3,7 +3,6 @@ package com.oracle.cloud.demo.oe.sessions;
 import com.oracle.cloud.demo.oe.entities.Customer;
 import com.oracle.cloud.demo.oe.entities.Order;
 import com.oracle.cloud.demo.oe.entities.OrderItem;
-import weblogic.javaee.CallByReference;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -15,7 +14,6 @@ import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
-@CallByReference
 @Stateless(name="OrdersFacade")
 public class OrdersFacade extends AbstractFacade<Order> implements OrdersFacadeRemote, Serializable {
 	private static final long serialVersionUID = 1L;

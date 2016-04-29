@@ -4,7 +4,6 @@ import com.oracle.cloud.demo.oe.entities.Customer;
 import com.oracle.cloud.demo.oe.entities.Order;
 import com.oracle.cloud.demo.oe.entities.OrderItem;
 import com.oracle.cloud.demo.oe.web.util.BasketItem;
-import weblogic.javaee.CallByReference;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -15,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@CallByReference
 @Stateless
 public class CheckoutSessionBean implements Serializable, CheckoutSessionBeanRemote {
 	private static final long serialVersionUID = 1L;

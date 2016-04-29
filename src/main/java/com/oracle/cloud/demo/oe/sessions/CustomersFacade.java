@@ -1,7 +1,6 @@
 package com.oracle.cloud.demo.oe.sessions;
 
 import com.oracle.cloud.demo.oe.entities.Customer;
-import weblogic.javaee.CallByReference;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -11,7 +10,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.io.Serializable;
 
-@CallByReference
 @Stateless
 public class CustomersFacade extends AbstractFacade<Customer> implements CustomersFacadeRemote, Serializable {
     private static final long serialVersionUID = 1L;

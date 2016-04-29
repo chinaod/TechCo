@@ -2,7 +2,6 @@ package com.oracle.cloud.demo.oe.sessions;
 
 import com.oracle.cloud.demo.oe.entities.Order;
 import com.oracle.cloud.demo.oe.entities.ProductInformation;
-import weblogic.javaee.CallByReference;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -16,7 +15,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@CallByReference
 @Stateless(name="ProductInformationFacade")
 public class ProductInformationFacade extends AbstractFacade<ProductInformation> implements ProductInformationFacadeRemote, Serializable {
     private static final long serialVersionUID = 1L;
